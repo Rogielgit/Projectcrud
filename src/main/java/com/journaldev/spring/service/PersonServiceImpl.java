@@ -1,14 +1,12 @@
 package com.journaldev.spring.service;
 
-import java.util.List;
-
-import com.journaldev.spring.dao.PersonDAOImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.journaldev.spring.dao.PersonDAO;
 import com.journaldev.spring.model.Person;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -28,7 +26,7 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	//@Override
-	@Transactional
+	@Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
 	public List<Person> listPersons() {
 		return this.personDAO.listPersons();
 	}

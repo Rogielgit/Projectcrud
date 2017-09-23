@@ -1,9 +1,9 @@
 package com.journaldev.spring.dao;
 
-import java.util.List;
-
 import com.journaldev.spring.model.Person;
 import org.hibernate.SessionFactory;
+
+import java.util.List;
 
 
 //metodos que serão implementado
@@ -15,6 +15,5 @@ public interface PersonDAO {
 	public List<Person> listPersons();
 	public Person getPersonById(int id);
 	public void removePerson(int id);
-	//public List<Person> listPersonsJson();
 	public void setSessionFactory(SessionFactory sf);
 }
